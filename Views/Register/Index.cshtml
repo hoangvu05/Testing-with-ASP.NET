@@ -1,0 +1,98 @@
+﻿@model ContosoUniversity.Models.RegisterRequest
+
+
+@{
+    Layout = null;
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/ContosoUniversity.styles.css" asp-append-version="true" />
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">School Manager 2024</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Authenticate" style="text-align: right;"></a>
+                        </li>
+                    </ul>
+                    <div class="nav_item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Authenticate" style="text-align: right;">Login</a>
+                    </div>
+                    <div class="nav_item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Register" asp-action="Index" style="text-align: right;">Register</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    
+
+    <form asp-controller="Register" asp-action="Index" method="post">
+    @*<form action="javascript:void(0)" method="post">*@
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <!--<input type="hidden" asp-for="AccountID" />-->
+        <div class="imgcontainer">
+            <img src="img_avatar2.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+        
+
+            <label for="FirstName"><b>FirstName</b></label>
+            <input type="text" id="FirstName" placeholder="Enter FirstName" name="FirstName" required>
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+
+            <label for="LastName"><b>LastName</b></label>
+            <input type="text" id="LastName"  placeholder="Enter LastName" name="LastName" required>
+            <span asp-validation-for="LastName" class="text-danger"></span>
+
+            <label for="Username"><b>Username</b></label>
+            <input type="text" id="Username" placeholder="Enter Username" name="Username" required>
+            <span asp-validation-for="Username" class="text-danger"></span>
+
+            <label for="Password"><b>Password</b></label>
+            <input type="password" id="Password" placeholder="Enter Password" name="Password" required>
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+            @*<button id="submitBTN" class="submit" onclick="addItem()">Register</button>*@
+            <button type="submit" >Register</button>
+            <!--<label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label> -->
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
+
+
+    <div id="body">
+        <section class="content-wrapper main-content clear-fix">
+        </section>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; @DateTime.Now.Year - ContosoUniversity - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script asp-append-version="true"></script>
+
+</body>

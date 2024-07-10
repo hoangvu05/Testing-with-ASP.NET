@@ -1,0 +1,75 @@
+﻿@model ContosoUniversity.Models.StudentExtraModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Student[0]!.LastName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Student[0].LastName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Student[0]!.FirstMidName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Student[0]!.FirstMidName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Student[0]!.EnrollmentDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Student[0]!.EnrollmentDate)
+        </dd>
+        <dt class = "col-sm-2">
+            Enrollment
+        </dt>
+        
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Course Title</th>
+                    <th>Grade</th>
+                </tr>
+               
+                @{
+                    int i = 0;
+                    foreach (var item in Model.Title)
+                    {
+                        i = i + 1;
+                        int j = 0;
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(model => item.Text)
+                            </td>
+                            @foreach (var item2 in Model.Grade)
+                            {
+                                j = j + 1;
+                                if (i == j)
+                                {
+                                    <td>
+                                        @Html.DisplayFor(model => item2.Text)
+                                    </td>
+                                }
+                                
+                            }
+                        </tr>
+                    }
+                }
+
+            </table>
+        </dd>
+        
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Student[0].ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
