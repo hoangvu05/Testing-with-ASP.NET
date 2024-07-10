@@ -1,0 +1,39 @@
+﻿@ContosoUniversity_HostAddress = https://localhost:7035
+
+GET {{ContosoUniversity_HostAddress}}/accounts/authenticate
+Content-Type: application/json
+
+{
+  "username":"kangaroomaiamgiadinhviet",
+  "password":"kasod"
+}
+
+###
+
+POST {{ContosoUniversity_HostAddress}}/accounts/Register
+Content-Type: application/json
+
+{
+  "firstname":"kasod",
+  "lastname":"kasod",
+  "username":"kangaroomaiamgiadinhviets",
+  "password":"kasod"
+}
+
+###
+
+GET {{ContosoUniversity_HostAddress}}/accounts/43/refresh-tokens
+
+###
+
+GET {{ContosoUniversity_HostAddress}}/accounts/25
+
+###
+
+POST {{ContosoUniversity_HostAddress}}/course/create/{id}
+
+###
+
+GET {{ContosoUniversity_HostAddress}}/course/index/{id}
+
+###
